@@ -1,0 +1,88 @@
+<Puz3>:
+    canvas.before:
+        Rectangle:
+            source:'image/p3/back.png'
+            size:root.size
+
+    GridLayout:
+        id:biblio
+        cols:6
+        size_hint:.9,.3
+        pos_hint: {'center_x': .5,'top':.8}
+        Image:
+            source:'image/p3/magnus.png'
+        Image:
+            id:q1
+            source:'image/p3/question.png'
+        Image:
+            source:'image/p3/novac.png'
+        Image:
+            id:q2
+            source:'image/p3/question.png'
+        Image:
+            source:'image/p3/xuxin.png'
+        Image:
+            id:q3
+            source:'image/p3/question.png'
+
+
+
+
+    GridLayout:
+        id:options
+        cols:3
+        size_hint:.5,.15
+        pos_hint: {'x': 0,'y':.2}
+        
+        
+
+    Button:
+        id:redoo
+        background_normal:'image/p3/redo.png'
+        background_down:'image/p3/redo.png'
+        background_disabled_normal: 'image/p3/redo.png'
+        background_disabled_selected: 'image/p3/redo.png'
+        size_hint:(.15,.15)
+        pos_hint: {'center_x': .77,'center_y':.37}
+        on_release:
+            root.redo()
+
+    Button:
+        id:next
+        background_normal:'image/tr/next.png'
+        background_down:'image/tr/next_d.png'
+        background_disabled_normal:'image/tr/next.png'
+        size_hint:(.15,.15)
+        pos_hint: {'center_x': .9,'center_y':.37}
+        opacity:0
+        disabled:True
+        on_release:
+            app.change('puz4')
+    Image:
+        id:cgr
+        source:'image/tr/cgr.png'
+        size_hint:(.7,.15)
+        pos_hint: {'center_x': .5,'center_y':.2}
+        opacity:0
+    Image:
+        id:hnt
+        source:'image/tr/hint.png'
+        size_hint:(.7,.15)
+        pos_hint: {'center_x': .5,'center_y':.2}
+        opacity:0
+        
+<Bic3>:
+    canvas.before:
+        PushMatrix
+        Translate:
+            x:self.xx
+            y:self.yy
+        Rotate:
+            origin:self.center
+            angle:self.angle
+        Scale:
+            origin:self.center
+            x:self.sx
+            y:self.sy
+    canvas.after:
+        PopMatrix

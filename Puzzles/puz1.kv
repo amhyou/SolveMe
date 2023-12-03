@@ -1,0 +1,56 @@
+#: import Sugar Puzzles.puz1.Sugar
+#: import Bic1 Puzzles.puz1.Bic1
+
+<Puz1>:
+    canvas.before:
+        Rectangle:
+            source:'image/p1/back.png'
+            size:root.size
+
+    Bic1:
+        id:cu
+        source:'image/p1/cup.png'
+        size_hint:(.3,.3)
+    Sugar:
+        id:su
+        source:'image/p1/sugar.png'
+        size_hint:(.15,.15)
+        #pos_hint: {'center': .5,'center_y': .5}
+        opacity:.6
+        canvas.before:
+            PushMatrix
+            Translate:
+                x:self.coord[0]
+                y:self.coord[1]
+        canvas.after:
+            PopMatrix
+
+    Image:
+        source:'image/p1/ass.png'
+        size_hint:(.7,.15)
+        pos_hint: {'center_x': .5,'center_y':.8}
+
+
+    Button:
+        id:next
+        background_normal:'image/tr/next.png'
+        background_down:'image/tr/next_d.png'
+        background_disabled_normal:'image/tr/next.png'
+        size_hint:(.15,.15)
+        pos_hint: {'center_x': .85,'center_y':.4}
+        opacity:0
+        disabled:True
+        on_release:
+            app.change('puz2')
+    Image:
+        id:cgr
+        source:'image/tr/cgr.png'
+        size_hint:(.7,.15)
+        pos_hint: {'center_x': .5,'center_y':.2}
+        opacity:0
+    Image:
+        id:hnt
+        source:'image/tr/hint.png'
+        size_hint:(.7,.15)
+        pos_hint: {'center_x': .5,'center_y':.2}
+        opacity:0

@@ -1,0 +1,70 @@
+
+<LooseScreen>:
+
+    canvas.before:
+        Rectangle:
+            size:self.size
+            pos:self.pos
+            texture:self.back_texture
+    Bicloose:
+        id:back
+        size_hint:.1,.1
+        pos_hint:{'y':.1,'x':0}
+        text:'Back to Menu'
+        font_size: .2 * self.height
+        source:'image/lo/arrow2.png'
+        on_press:
+            source:'image/lo/arrow3.png'
+        on_release:
+            source:'image/lo/arrow2.png'
+            app.change('welcome_screen')
+
+    Button:
+        id:frog
+        background_normal:'image/lo/face.png'
+        background_down: 'image/lo/face.png'
+        size_hint:.3, .6
+        pos_hint: {"top":0.8, "center_x":.14}
+        on_press:
+            root.rotate_frog()
+ 
+
+    Button:
+        id:face
+        background_normal:'image/lo/dog.png'
+        background_down: 'image/lo/dog.png'
+        size_hint:.3, .6
+        pos_hint: {"top":0.8, "center_x":.87}
+        on_press:
+            root.rotate_face()
+            
+    Bicloose:
+        id:cont
+        source:'image/lo/resume.png'
+        background_disabled_normal: 'image/lo/resume.png'
+        size_hint:.3, .15
+        pos_hint: {"top":.5, "center_x":.5}
+        on_release:
+            app.change(root.last_session)
+        canvas.before:
+            PushMatrix
+            Scale:
+                origin:self.center
+                x:self.sc
+                y:self.sc
+   
+        canvas.after:
+            PopMatrix
+    Image:
+        size_hint:.2,.2
+        pos_hint:{'top':.8,'center_x':.35}
+        source:'image/lo/health_heart2.png'
+    Image:
+        size_hint:.2,.2
+        pos_hint:{'top':.8,'center_x':.5}
+        source:'image/lo/health_heart2.png'
+    Image:
+        size_hint:.2,.2
+        pos_hint:{'top':.8,'center_x':.65}
+        source:'image/lo/health_heart2.png'
+    

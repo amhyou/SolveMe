@@ -1,0 +1,98 @@
+<Puz6>:
+    canvas.before:
+        Rectangle:
+            source:'image/p6/back.png'
+            size:root.size
+    Bic6:
+        id:aze
+        source:'image/p6/01.png'
+        size_hint:None,None
+        size:150,150
+        canvas.before:
+            PushMatrix
+            Translate:
+                x:self.xx   
+                y:self.yy
+            Rotate:
+                origin:self.center
+                angle:self.angle
+            Scale:
+                origin:self.center
+                x:self.sx
+                y:self.sy
+        canvas.after:
+            PopMatrix
+
+    Bic6:
+        id:gun
+        angle:320
+        source:'image/p6/machinegun.png'
+        size_hint:.2,.2
+        pos_hint: {'center_x':.87,'center_y':.37}
+        canvas.before:
+            PushMatrix
+            Rotate:
+                origin:self.center
+                angle:self.angle
+            Scale:
+                origin:self.center
+                x:self.sx
+                y:self.sy
+        canvas.after:
+            PopMatrix
+    Bic6:
+        id:bullet
+        source:'image/p6/candy.png'
+        size_hint:.04,.04
+        #pos_hint: {'center_x':.87,'center_y':.337}
+        opacity:0
+        canvas.before:
+            PushMatrix
+            Translate:
+                x:self.xx   
+                y:self.yy
+            Rotate:
+                origin:self.center
+                angle:self.angle
+            Scale:
+                origin:self.center
+                x:self.sx
+                y:self.sy
+        canvas.after:
+            PopMatrix
+
+    Label:
+        id:death
+        size_hint:(.15,.15)
+        text:str(root.death)+'/3'
+        font_size:.5*self.height
+        theme_text_color: "Custom"
+        text_color: 1, 0, 0, 1
+        halign:'center'
+        pos_hint: {'right':1,'center_y':.65}
+    
+    Button:
+        id:next
+        background_normal:'image/tr/next.png'
+        background_down:'image/tr/next_d.png'
+        background_disabled_normal:'image/tr/next.png'
+        size_hint:(.15,.15)
+        pos_hint: {'right':1,'center_y':.37}
+        opacity:0
+        disabled:True
+        on_release:
+            app.change('puz7')
+    Image:
+        id:cgr
+        source:'image/tr/cgr.png'
+        size_hint:(.7,.15)
+        pos_hint: {'center_x': .5,'center_y':.2}
+        opacity:0
+    Image:
+        id:hnt
+        source:'image/tr/hint.png'
+        size_hint:(.7,.15)
+        pos_hint: {'center_x': .5,'center_y':.2}
+        opacity:0
+
+    

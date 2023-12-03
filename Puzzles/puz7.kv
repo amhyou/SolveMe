@@ -1,0 +1,39 @@
+<Puz7>:
+    canvas.before:
+        Rectangle:
+            source:'image/p7/back.png'
+            size:root.size
+    GridLayout:
+        id:biblio
+        size_hint:(.8,.65)
+        pos_hint: {'top': .85,'x':0}
+        cols:3
+        spacing:0
+        padding:0
+
+    
+    Button:
+        id:next
+        background_normal:'image/tr/next.png'
+        background_down:'image/tr/next_d.png'
+        background_disabled_normal:'image/tr/next.png'
+        size_hint:(.15,.15)
+        pos_hint: {'right':1,'center_y':.37}
+        opacity:0
+        disabled:True
+        on_release:
+            app.change('puz8')
+    Image:
+        id:cgr
+        source:'image/tr/cgr.png'
+        size_hint:(.7,.15)
+        pos_hint: {'center_x': .5,'center_y':.2}
+        opacity:0
+    Image:
+        id:hnt
+        source:'image/tr/hint.png'
+        size_hint:(.7,.15)
+        pos_hint: {'center_x': .5,'center_y':.2}
+        opacity:0
+
+    

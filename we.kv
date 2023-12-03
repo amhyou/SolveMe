@@ -1,0 +1,70 @@
+<WelcomeScreen>:
+    canvas.before:
+        Rectangle:
+            size:self.size
+            pos:self.pos
+            texture:self.back_texture
+
+
+    Button:
+        id:start
+        background_normal: 'image/we/start.png'
+        size_hint:.23,.3
+        pos_hint:{'center_x':.5,'center_y':.5}
+    Bic:
+        id:welcome
+        angle:20
+        source:'image/we/welcome.png'
+        size_hint:.23,.3
+        pos_hint:{'center_x':.2,'center_y':.7}
+        canvas.before:
+            PushMatrix
+            Rotate:
+                origin:self.center
+                angle:self.angle
+            Scale:
+                origin:self.center
+                x:self.sx
+                y:self.sy
+        canvas.after:
+            PopMatrix
+    Bic:
+        id:tothe
+        angle:0
+        source:'image/we/tothe.png'
+        size_hint:.23,.3
+        pos_hint:{'center_x':.5,'center_y':.8}
+        canvas.before:
+            PushMatrix
+            Rotate:
+                origin:self.center
+                angle:self.angle
+            Scale:
+                origin:self.center
+                x:self.sx
+                y:self.sy
+        canvas.after:
+            PopMatrix
+    Bic:
+        id:game
+        angle:-20
+        source:'image/we/game.png'
+        size_hint:.23,.3
+        pos_hint:{'center_x':.8,'center_y':.7}
+        canvas.before:
+            PushMatrix
+            Rotate:
+                origin:self.center
+                angle:self.angle
+            Scale:
+                origin:self.center
+                x:self.sx
+                y:self.sy
+        canvas.after:
+            PopMatrix
+
+    Button:
+        id:start
+        background_normal: 'image/we/start.png'
+        size_hint:.23,.3
+        pos_hint:{'center_x':.5,'center_y':.5}

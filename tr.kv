@@ -1,0 +1,16 @@
+
+
+<Progress>:
+    size_hint:.8,0.03
+    pos_hint:{'top':.955,'center_x':.5}
+
+    canvas.before:
+        Rectangle
+            pos:self.pos
+            size:self.stage*self.size[0]/10.0,self.size[1]
+            texture: self.texture
+            tex_coords:self.tex_coords
+        Rectangle:
+            pos:self.pos[0]+self.stage*self.size[0]/10.0-60,self.pos[1]-40
+            size:100,100
+            source: "image/tr/head.png"

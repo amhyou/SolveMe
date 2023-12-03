@@ -1,0 +1,46 @@
+<Puz9>:
+	canvas.before:
+        Rectangle:
+            source:'image/p9/back.png'
+            size:root.size
+	Label:
+		text: 'What is ,without comma, the price of this thing in USD Now :'
+		halign: 'center'
+		font_size:.3*self.height
+		size_hint:(.85,.2)
+		pos_hint:{'center_x':.5,'top':.85}
+
+	Bic9:
+		source:'image/p9/eth.png'
+		on_press:root.cash.play()
+		size_hint:.2,.2
+		pos_hint:{'center_x':.5,'top':.65}
+		canvas.before:
+            PushMatrix
+            Rotate:
+                angle: self.angle
+                origin: self.center
+        canvas.after:
+            PopMatrix
+	TextInput:
+		id:att
+		size_hint:.2,.08
+		font_size:.8*self.height
+		pos_hint:{'center_x':.5,'top':.45}
+
+	Button:
+		text: 'Check'
+		size_hint:(.35,.15)
+		font_size:.8*self.height
+		pos_hint:{'center_x':.5,'top':.35}
+		on_release:
+			root.verify()
+	Label:
+		id:err
+		text: 'Verify your internet connexion and try again'
+		halign: 'center'
+		color:1,.1,.1,1
+		font_size:.5*self.height
+		size_hint:(.7,.1)
+		pos_hint:{'center_x':.5,'y':.13}
+		opacity:0
